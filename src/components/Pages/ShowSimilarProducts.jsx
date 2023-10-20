@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 
 
 const ShowSimilarProducts = ({show}) => {
    
-   const {name, brandName, rating, type,price
+   const {_id, name, brandName, rating, type,price
         ,photo,description} = show;
    
    const handleUpdate = () =>{
-    
+
    }
     return (
         <div className="flex flex-grow">
@@ -34,7 +35,7 @@ const ShowSimilarProducts = ({show}) => {
 </div>
 <div className=" w-full mt-5 gap-5 flex justify-around">
     <button className="btn btn-secondary">Details</button>
-    <button onClick={handleUpdate} className="btn btn-primary">Update</button>
+    <Link to={`/update/${_id}`}><button className="btn btn-primary">Update</button></Link>
 </div>
 
 
