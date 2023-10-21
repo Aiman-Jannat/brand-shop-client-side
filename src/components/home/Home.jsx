@@ -20,15 +20,15 @@ const Home = () => {
             </div>
 
             <p className="my-12 p-5 w-fit mx-auto text-center text-4xl text-pink-900 font-bold border-2 border-red-950">About Us</p>
-<div className="flex justify-center gap-10 px-24 pb-7">
-            <div>
+<div className="flex-col   lg:flex justify-center gap-10 px-24 pb-7">
+            <div className="text-2xl bg-pink-50 p-14">
                 <ul className="list-disc">
                     <li>Oue company is a reknowned company in bangladesh</li>
                     <li>We gave people fresh foods</li>
                     <li>We always make our client happy</li>
                 </ul>
             </div>
-            <div>
+            <div className="text-2xl bg-pink-50 p-14">
             <ul className="list-disc">
                     <li>Anyone can purchase foods via online and got at home</li>
                     <li>we prioratize customer satisfaction</li>

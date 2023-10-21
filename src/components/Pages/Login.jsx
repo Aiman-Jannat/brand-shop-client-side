@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import {ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
@@ -20,7 +21,10 @@ const Login = () => {
       // console.log(email, password);
       signIn(email, password)
     .then(res => {setSuccess(true);
-    form.reset();})
+    form.reset();
+    toast('User logged in Successfully');
+    <><Link to='/'></Link></>
+  })
     .catch(error=>setError(error.message));
 
    
@@ -70,7 +74,7 @@ const Login = () => {
       </form>
     </div>
   </div>
-</div>
+</div><ToastContainer></ToastContainer>
         </div>
     );
 };

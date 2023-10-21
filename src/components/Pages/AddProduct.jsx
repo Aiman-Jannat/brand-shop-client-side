@@ -95,7 +95,7 @@ const AddProduct = () => {
   </label>
   <label className="input-group">
     
-    <input type="text" name="price" placeholder="taste" className="w-full input input-bordered" />
+    <input type="text" name="price" placeholder="price" className="w-full input input-bordered" />
   </label>
 </div>
 
