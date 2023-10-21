@@ -6,6 +6,7 @@ import { useContext } from 'react';
 
 const Navbar = () => {
   const {userr, logout} = useContext(AuthContext);
+
     return (
         <div className="pb-2 px-10">
         <div className="">

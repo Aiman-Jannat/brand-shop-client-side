@@ -23,7 +23,7 @@ const Login = () => {
     .then(res => {setSuccess(true);
     form.reset();
     toast('User logged in Successfully');
-    <><Link to='/'></Link></>
+   
   })
     .catch(error=>setError(error.message));
 

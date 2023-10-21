@@ -12,9 +12,9 @@ const Registration = () => {
     const [regError, setRegError] = useState('');
     const [success, setSuccess] =  useState(false);
 
-    const {createUser, userr} = useContext(AuthContext);
+    const {createUser, userr, signIn} = useContext(AuthContext);
 
-    console.log(userr);
+    console.log("User",userr);
     const uppercaseRegex = /[A-Z]/;
     const specialCharRegex = /[!@#$%^&*()_+{}|[\]:";'<>?,./]/;
   
@@ -22,6 +22,7 @@ const Registration = () => {
 
 
     const handleSubmit = e =>{
+
          e.preventDefault();
          const form = e.target;
         const name = form.name.value;
@@ -45,6 +46,7 @@ const Registration = () => {
         else{
             createUser(email, password, name, photoUrl )
             setSuccess(true);
+            signIn(email,password);
             toast('Your account has been created successfully!')
             form.reset();
             return;
