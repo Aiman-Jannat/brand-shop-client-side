@@ -1,5 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import Product from "../Pages/Product";
+import Slider from "../slider/Slider";
 
 
 const ShowBrand = ({brand}) => {
@@ -22,6 +23,7 @@ const navigate = useNavigate();
   
   </div>
 </div>
+
         </div>
     );
 };

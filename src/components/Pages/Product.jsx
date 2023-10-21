@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useLoaderData, useParams } from "react-router-dom";
 import ShowSimilarProducts from "./ShowSimilarProducts";
+import Slider from "../slider/Slider";
 
 
 const Product = () => {
@@ -36,7 +37,10 @@ const Product = () => {
           {
             matching.map(show => <ShowSimilarProducts key={show._id} show={show}></ShowSimilarProducts>)
           }
+
+          
         </div>
+        <Slider className=""></Slider>
         </>
     );
 };

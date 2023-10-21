@@ -43,6 +43,7 @@ const ShowSimilarProducts = ({show}) => {
     </div>
   </div>
 </div>
+
         </div>
     );
 };
