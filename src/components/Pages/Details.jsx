@@ -1,8 +1,33 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Details = () => {
     const productDetails  = useLoaderData();
+    const {userr} = useContext(AuthContext);
+    console.log("data",userr.email);
+    const handleAddCart = () =>{
+      const name=productDetails.name;
+      const type = productDetails.type;
+      const brandName = productDetails.brandName;
+      const photo = productDetails.photo;
+      const price = productDetails.price;
+      const rating = productDetails.rating;
+      const description = productDetails.description;
+      const email = userr.email;
+      const addCart = {name, type, brandName, photo, price, rating, description, email};
+      
+                fetch(`http://localhost:5000/carts`,{
+                    method:'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(addCart)
+                })
+                .then(res=>res.json())
+        .then(data=>console.log(data))
+    }
    
     return (
         <div className="border">
@@ -23,7 +48,7 @@ const Details = () => {
   <input type="radio" name={`rating-${productDetails.rating}`}  className="mask mask-star-2 bg-orange-400" />
 </div>
     <div className="card-actions justify-start mt-5">
-      <button className="btn btn-primary">Add to Cart</button>
+      <button onClick={handleAddCart} className="btn btn-primary">Add to Cart</button>
     </div>
   </div>
 </div>
