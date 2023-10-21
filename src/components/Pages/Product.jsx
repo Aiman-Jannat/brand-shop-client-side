@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Navigate, useLoaderData, useParams } from "react-router-dom";
 import ShowSimilarProducts from "./ShowSimilarProducts";
 import Slider from "../slider/Slider";
+import NoData from "./NoData";
+import { ToastContainer,toast } from "react-toastify";
 
 
 const Product = () => {
@@ -18,9 +20,13 @@ const Product = () => {
     const specific = service.filter(data => data.id==id);
     // console.log(specific[0]?.name)
    const matching = products.filter(data => (data.brandName==specific[0]?.name));
+    
     console.log(matching)
-    
-    
+    if(matching==null)
+    {
+      <><p>Soory no data here</p></>
+    }
+   
 
     
 
@@ -30,17 +36,20 @@ const Product = () => {
         <div className="flex justify-center">
         <p className="my-12 p-5 w-fit mx-auto text-center text-4xl text-pink-900 font-bold border-2 border-red-950">Available Foods in Our Brand</p>
         </div>
+        { matching.length==0?<NoData></NoData>:
         <div className="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           
           
           
           {
-            matching.map(show => <ShowSimilarProducts key={show._id} show={show}></ShowSimilarProducts>)
+             matching.map(show => <ShowSimilarProducts key={show._id} show={show}></ShowSimilarProducts>)
           }
 
           
         </div>
+}
         <Slider className=""></Slider>
+        <ToastContainer></ToastContainer>
         </>
     );
 };
