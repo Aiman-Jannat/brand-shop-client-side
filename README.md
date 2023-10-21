@@ -1,8 +1,10 @@
-# React + Vite
+# Hungry Food & Beverage website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Authenticaiton is strictly followed here in this website
+- A user have to registered fist to buy somthing from this website or can logged in via google account
+- Six food brands are available here, inside this brand, 4 products are included
+- Anyone can select food item and add this into cart
+- An user can delete his or her cart
+- An logged in user can update product data
+  
