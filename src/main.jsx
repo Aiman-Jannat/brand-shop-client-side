@@ -17,6 +17,7 @@ import Registration from './components/Pages/Registration.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import Product from './components/Pages/Product.jsx';
 import UpdateProduct from './components/Pages/UpdateProduct.jsx';
+import Details from './components/Pages/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<UpdateProduct></UpdateProduct>,
+        loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`)
+      },
+      {
+        path:'/details/:id',
+        element:<Details></Details>,
         loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`)
       }
     ]

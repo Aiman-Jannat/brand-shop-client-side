@@ -34,7 +34,8 @@ const ShowSimilarProducts = ({show}) => {
 </div>
 </div>
 <div className=" w-full mt-5 gap-5 flex justify-around">
-    <button className="btn btn-secondary">Details</button>
+<Link to={`/details/${_id}`}><button className="btn btn-secondary">Details</button></Link>
+
     <Link to={`/update/${_id}`}><button className="btn btn-primary">Update</button></Link>
 </div>
 
