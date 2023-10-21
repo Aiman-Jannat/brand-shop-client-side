@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { ToastContainer,toast } from "react-toastify";
 
 
 const Details = () => {
@@ -26,7 +27,12 @@ const Details = () => {
                     body:JSON.stringify(addCart)
                 })
                 .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+          if(data.acknowledged)
+          {
+            toast("Successfully your order is added to Database.")
+          }
+        })
     }
    
     return (
@@ -52,7 +58,7 @@ const Details = () => {
     </div>
   </div>
 </div>
-            
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
 
 
-const ShowMyCarts = ({show,}) => {
+const ShowMyCarts = ({show}) => {
     const {_id, name, brandName, rating, type,price
         ,photo,description} = show;
         
@@ -15,7 +16,8 @@ const ShowMyCarts = ({show,}) => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
+                if(data.acknowledged)
+                toast("Your product has been deleted successfully")
             })
         }
 
@@ -23,7 +25,8 @@ const ShowMyCarts = ({show,}) => {
     return (
         <div>
             <div className="flex flex-grow">
-          <div className="flex flex-grow">
+          <div className="flex flex-grow pb-5">
+            <div>
             <div className="card w-96 bg-base-100 shadow-xl">
   <figure className="h-52"><img className="h-full w-full" src={photo} alt="Shoes" /></figure>
   <div className="card-body">
@@ -45,8 +48,9 @@ const ShowMyCarts = ({show,}) => {
   <input type="radio" name={`rating-${rating}`}  className="mask mask-star-2 bg-orange-400" />
 </div>
 </div>
+</div>
 <div className=" w-full mt-5 gap-5 flex justify-around">
-<Link><button onClick={()=>handleDel(_id)} className="btn px-14 text-white font-bold btn-error w-full">Delete</button></Link>
+<Link><button onClick={()=>handleDel(_id)} className="btn px-14 text-white font-bold btn-error mb-5 w-full">Delete</button></Link>
 
     
 </div>
@@ -56,6 +60,7 @@ const ShowMyCarts = ({show,}) => {
   </div>
 </div>
         </div>
+        <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -1,4 +1,7 @@
+
 import Product from "./Product";
+
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const AddProduct = () => {
@@ -27,7 +30,10 @@ const AddProduct = () => {
         })
         .then(res => res.json())
         .then(data=>{
-            console.log(data);
+            if(data.insertedId)
+            {
+              toast("Data added successfully");
+            }
         })
 
     }
@@ -128,6 +134,7 @@ const AddProduct = () => {
 
 
             </div> 
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

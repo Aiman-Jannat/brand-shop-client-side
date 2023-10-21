@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const UpdateProduct = () => {
@@ -26,7 +27,12 @@ const UpdateProduct = () => {
                     body:JSON.stringify(updatedProduct)
                 })
                 .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            if(data.acknowledged)
+            {
+                toast("Your data has been successfully updated");
+            }
+        })
 
     }
     return (
